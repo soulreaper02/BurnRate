@@ -2,7 +2,7 @@ import SwiftUI
 import ServiceManagement
 import OSLog
 
-private let logger = Logger(subsystem: "com.amitkumar.ClaudeCodexWatch", category: "SettingsView")
+private let logger = Logger(subsystem: "com.amitkumar.burnrate", category: "SettingsView")
 
 struct SettingsView: View {
     var body: some View {

@@ -1,13 +1,13 @@
 import Foundation
 import OSLog
 
-private let logger = Logger(subsystem: "com.amitkumar.ClaudeCodexWatch", category: "AppSupportPath")
+private let logger = Logger(subsystem: "com.amitkumar.burnrate", category: "AppSupportPath")
 
 enum AppSupportPath {
     static let directoryURL: URL = {
         let fm = FileManager.default
         let base = fm.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-        let dir = base.appendingPathComponent("ClaudeCodexWatch", isDirectory: true)
+        let dir = base.appendingPathComponent("BurnRate", isDirectory: true)
         if !fm.fileExists(atPath: dir.path) {
             do {
                 try fm.createDirectory(at: dir, withIntermediateDirectories: true)

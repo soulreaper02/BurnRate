@@ -3,7 +3,7 @@ import AppKit
 import OSLog
 import Observation
 
-private let logger = Logger(subsystem: "com.amitkumar.ClaudeCodexWatch", category: "Poller")
+private let logger = Logger(subsystem: "com.amitkumar.burnrate", category: "Poller")
 
 @Observable
 @MainActor

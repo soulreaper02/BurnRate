@@ -2,7 +2,7 @@ import Foundation
 import UserNotifications
 import OSLog
 
-private let logger = Logger(subsystem: "com.amitkumar.ClaudeCodexWatch", category: "Notifier")
+private let logger = Logger(subsystem: "com.amitkumar.burnrate", category: "Notifier")
 
 @MainActor
 final class Notifier {

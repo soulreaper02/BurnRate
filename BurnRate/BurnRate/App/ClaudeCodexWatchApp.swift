@@ -2,10 +2,10 @@ import SwiftUI
 import SwiftData
 import OSLog
 
-private let appLogger = Logger(subsystem: "com.amitkumar.ClaudeCodexWatch", category: "App")
+private let appLogger = Logger(subsystem: "com.amitkumar.burnrate", category: "App")
 
 @main
-struct ClaudeCodexWatchApp: App {
+struct BurnRateApp: App {
     private let sharedContainer: ModelContainer
     @State private var appState: AppState
     @AppStorage("onboardingComplete") private var onboardingComplete = false

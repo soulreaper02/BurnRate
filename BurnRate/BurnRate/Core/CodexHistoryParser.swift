@@ -1,7 +1,7 @@
 import Foundation
 import OSLog
 
-private let logger = Logger(subsystem: "com.amitkumar.ClaudeCodexWatch", category: "CodexHistoryParser")
+private let logger = Logger(subsystem: "com.amitkumar.burnrate", category: "CodexHistoryParser")
 
 struct CodexReading {
     let weeklyUsedPercent: Double?

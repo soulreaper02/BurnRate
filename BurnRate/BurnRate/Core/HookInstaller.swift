@@ -1,7 +1,7 @@
 import Foundation
 import OSLog
 
-private let logger = Logger(subsystem: "com.amitkumar.ClaudeCodexWatch", category: "HookInstaller")
+private let logger = Logger(subsystem: "com.amitkumar.burnrate", category: "HookInstaller")
 
 enum InstallMode {
     case fresh

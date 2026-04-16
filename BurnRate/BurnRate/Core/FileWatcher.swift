@@ -1,7 +1,7 @@
 import Foundation
 import OSLog
 
-private let logger = Logger(subsystem: "com.amitkumar.ClaudeCodexWatch", category: "FileWatcher")
+private let logger = Logger(subsystem: "com.amitkumar.burnrate", category: "FileWatcher")
 
 /// Watches files and directories for changes using kqueue via DispatchSource.
 /// Much lower latency than polling — picks up changes within milliseconds.

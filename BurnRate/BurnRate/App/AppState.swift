@@ -3,7 +3,7 @@ import OSLog
 import Observation
 import SwiftData
 
-private let logger = Logger(subsystem: "com.amitkumar.ClaudeCodexWatch", category: "AppState")
+private let logger = Logger(subsystem: "com.amitkumar.burnrate", category: "AppState")
 
 @Observable
 @MainActor

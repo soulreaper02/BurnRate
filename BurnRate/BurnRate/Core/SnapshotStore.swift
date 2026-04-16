@@ -2,7 +2,7 @@ import Foundation
 import OSLog
 import SwiftData
 
-private let logger = Logger(subsystem: "com.amitkumar.ClaudeCodexWatch", category: "SnapshotStore")
+private let logger = Logger(subsystem: "com.amitkumar.burnrate", category: "SnapshotStore")
 
 @MainActor
 final class SnapshotStore {

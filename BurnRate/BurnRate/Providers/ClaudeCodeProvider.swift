@@ -1,7 +1,7 @@
 import Foundation
 import OSLog
 
-private let logger = Logger(subsystem: "com.amitkumar.ClaudeCodexWatch", category: "ClaudeCodeProvider")
+private let logger = Logger(subsystem: "com.amitkumar.burnrate", category: "ClaudeCodeProvider")
 
 struct ClaudeCodeProvider: UsageProvider {
     let id: ProviderID = .claudeCode
