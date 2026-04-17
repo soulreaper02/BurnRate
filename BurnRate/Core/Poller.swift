@@ -76,7 +76,7 @@ final class Poller {
             }
             for await snapshot in group {
                 latest[snapshot.providerId] = snapshot
-                logger.info("[\(snapshot.providerId.rawValue)] session=\(snapshot.sessionUsedPercent.map { String(format: "%.1f%%", $0) } ?? "—") weekly=\(snapshot.weeklyUsedPercent.map { String(format: "%.1f%%", $0) } ?? "—")")
+                logger.info("[\(snapshot.providerId.rawValue)] session=\(snapshot.sessionUsedPercent.map { String(format: "%.1f%%", $0) } ?? "—")")
             }
         }
         onTick?(latest)

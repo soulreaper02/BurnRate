@@ -21,12 +21,14 @@ final class Notifier {
             guard snapshot.isHealthy else { continue }
             let prev = previous[id]
 
-            checkThresholds(snapshot: snapshot, previous: prev, metric: "session",
+            checkThresholds(snapshot: snapshot, previous: prev,
+                            metric: "session",
                             current: snapshot.sessionUsedPercent,
                             previousValue: prev?.sessionUsedPercent,
                             windowStart: snapshot.sessionResetsAt)
 
-            checkThresholds(snapshot: snapshot, previous: prev, metric: "weekly",
+            checkThresholds(snapshot: snapshot, previous: prev,
+                            metric: "weekly",
                             current: snapshot.weeklyUsedPercent,
                             previousValue: prev?.weeklyUsedPercent,
                             windowStart: snapshot.weeklyResetsAt)
@@ -49,6 +51,7 @@ final class Notifier {
         guard let current, isEnabled(provider: snapshot.providerId, metric: metric) else { return }
 
         let windowKey = windowStart.map { ISO8601DateFormatter().string(from: $0) } ?? "unknown"
+        let limitLabel = metric == "weekly" ? "7-day limit" : "5h session limit"
 
         for threshold in thresholds {
             guard isThresholdEnabled(provider: snapshot.providerId, metric: metric, threshold: threshold) else { continue }
@@ -56,13 +59,9 @@ final class Notifier {
             let isNowAbove = current >= threshold
             guard wasBelow && isNowAbove else { continue }
 
-            let providerName = snapshot.providerId == .claudeCode ? "Claude Code" : "Codex CLI"
-            let metricLabel = metric == "session" ? "5h session" : "weekly"
-            let notifId = "\(snapshot.providerId.rawValue)-\(metric)-\(Int(threshold))-\(windowKey)"
-
             fire(
-                id: notifId,
-                title: "\(providerName): \(Int(threshold))% of \(metricLabel) limit",
+                id: "\(snapshot.providerId.rawValue)-\(metric)-\(Int(threshold))-\(windowKey)",
+                title: "Claude Code: \(Int(threshold))% of \(limitLabel)",
                 body: String(format: "%.1f%% used — consider wrapping up soon.", current)
             )
         }
@@ -74,7 +73,7 @@ final class Notifier {
               let currentResets = snapshot.sessionResetsAt,
               prevResets < Date.now && currentResets > Date.now else { return }
 
-        let providerName = snapshot.providerId == .claudeCode ? "Claude Code" : "Codex CLI"
+        let providerName = "Claude Code"
         fire(
             id: "\(snapshot.providerId.rawValue)-reset-\(ISO8601DateFormatter().string(from: Date()))",
             title: "\(providerName): window reset",

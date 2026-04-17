@@ -21,4 +21,10 @@ enum AppSupportPath {
     static var claudeLatestJSON: URL {
         directoryURL.appendingPathComponent("claude_latest.json")
     }
+
+    /// Written by the Claude Code statusline hook (already installed at ~/.claude/ccw-hook.sh)
+    static var hookStatusJSON: URL {
+        let base = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
+        return base.appendingPathComponent("ClaudeCodexWatch/claude_latest.json")
+    }
 }
